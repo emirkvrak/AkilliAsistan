@@ -90,18 +90,6 @@ Bu proje, yapay zekâ teknolojileri ile bilgi erişimini kolaylaştırmak amacı
 
 ![Profil](./assets/profil_bilgileri.png)
 
-### 📂 Belge Yükleme Arayüzü
-
-![Belge Yükleme](./assets/belgeyukleme.png)
-
-### 🌍 Çok Dilli Belge Ekleme
-
-![Belge Ekleme EN](./assets/dosyayuklemeeng.png)
-
-### 📚 Belgeler ve Kaynaklar
-
-![Belgeler Paneli](./assets/belgelerekran.png)
-
 ### 🧠 LaTeX Formatında Formül Yanıtı
 
 ![LaTeX Formülü](./assets/formullatex.png)
