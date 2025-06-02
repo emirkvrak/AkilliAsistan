@@ -1,0 +1,15 @@
+/* file: frontend/src/pages/SignUp/SignUp.module.css */
+
+
+.container {
+    text-align: center;
+    margin-top: 100px;
+    font-size: 1.1rem;
+    color: #444;
+  }
+  
+  .message {
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  

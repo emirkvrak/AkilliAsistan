@@ -1,0 +1,53 @@
+/* file: frontend/src/features/chat/Controls.module.css */
+
+.Controls {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Daha geniş boşluk */
+  width: 100%;
+  padding: 12px; /* Daha fazla iç boşluk */
+  background: #f9f9f9; /* Hafif arka plan rengi */
+  border-top: 1px solid #e3e3e3;
+  border-radius: 0 0 8px 8px; /* Yuvarlak köşeler */
+}
+
+.TextAreaContainer {
+  flex-grow: 1;
+  padding: 12px 20px; /* Daha büyük padding */
+  line-height: 1.5; /* Daha rahat okuma için satır yüksekliği */
+  border-radius: 20px; /* Daha yuvarlak köşeler */
+  background: #fff;
+  border: 1px solid #e3e3e3; /* Hafif bir çerçeve */
+}
+
+.TextArea {
+  width: 100%;
+  border: none;
+  outline: none;
+  resize: none;
+  background: #ffffff; /* Daha temiz bir arka plan */
+  color: #0d0d0d;
+  border-radius: 20px;
+  font-size: 14px; /* Daha büyük yazı tipi */
+  line-height: 1; /* Satır yüksekliğini artırıyoruz */
+}
+
+.TextArea:focus {
+  box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2); /* Odaklandığında hafif gölge */
+}
+
+.Button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px; /* Butonu biraz büyüttük */
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  outline: none;
+  background: #0d0d0d;
+}
+
+.Button svg {
+  fill: #f3f3f3;
+}

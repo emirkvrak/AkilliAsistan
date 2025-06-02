@@ -1,0 +1,594 @@
+/* file: frontend/src/components/Sidebar/RightSidebar.module.css */
+
+
+.SummarizeButton {
+  position: absolute;
+  bottom: 16px;
+  left: 12px;
+  right: 12px;
+  padding: 10px;
+  font-weight: 600;
+  background-color: #73a6f3;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  width: calc(100% - 24px);
+  text-align: center;
+  border: none;
+  z-index: 5;
+}
+
+
+
+.DragOverlay {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  bottom: 16px;
+  width: 250px;
+  backdrop-filter: blur(6px);
+  background-color: rgba(255, 255, 255, 0.4);
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+
+  transition: backdrop-filter 0.3s ease, background-color 0.3s ease;
+  will-change: backdrop-filter, transform;
+}
+
+@media (max-width: 768px) {
+  .DragOverlay {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+
+
+.DragText {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  background: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  animation: fadein 0.2s ease;
+}
+
+@keyframes fadein {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+
+
+.SpinnerText {
+  font-size: 12px;
+  font-style: italic;
+  color: orange;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+
+
+.TooltipWrapper {
+  position: relative;
+  display: block;
+  width: 100%;
+  overflow: visible;
+}
+
+.TooltipContentFixed {
+  position: absolute;
+  background-color: #fff;
+  color: #222;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 360px;
+  max-height: 300px;
+  z-index: 9999;
+  overflow: hidden;
+  box-sizing: border-box;
+  word-break: break-word;
+}
+
+.Bottom {
+  top: 100%;
+  margin-top: 8px;
+  left: 0;
+}
+
+.Top {
+  bottom: 100%;
+  margin-bottom: 8px;
+  left: 0;
+}
+
+.TooltipHeader {
+  font-weight: bold;
+  font-size: 15px;
+  margin-bottom: 6px;
+  color: #111;
+  white-space: normal;        /* ✅ satır kırılır */
+  word-break: break-word;     /* ✅ uzun kelime gerekirse kırılır */
+}
+
+
+.TooltipBody {
+  font-size: 13px;
+  color: #333;
+}
+
+.TooltipScrollContent {
+  max-height: 200px;
+  overflow-y: auto;
+  overflow-x: hidden;      /* ✅ yatay scroll kapatıldı */
+  white-space: pre-wrap;   /* ✅ satır sonlarında aşağı iner */
+  word-break: break-word;  /* ✅ çok uzun kelimeler aşağı iner */
+  padding-right: 6px;
+  line-height: 1.5;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 13px;
+}
+
+
+
+.UploadLinkContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  flex-wrap: nowrap; /* satır kırılmasın */
+  box-sizing: border-box;
+}
+
+
+.UploadLinkInput {
+  flex: 1;
+  min-width: 0; /* taşmayı engeller */
+  padding: 6px 10px;
+  font-size: 13px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: #f5f5f5;
+  color: #333;
+  box-sizing: border-box;
+}
+
+
+.UploadLinkButton {
+  flex-shrink: 0;
+  padding: 6px 12px;
+  font-size: 13px;
+  border-radius: 6px;
+  background-color: #7395f3;
+  color: white;
+  border: none;
+  cursor: pointer;
+  max-width: 64px;
+}
+
+
+.UploadLinkButton:hover {
+  background-color: #5b7ee0;
+}
+
+
+.UploadButton input[type="text"] {
+  width: 100%;
+  font-size: 13px;
+  border-radius: 6px;
+  border: none;
+  margin-top: 8px;
+  background-color: #e3e3e3;
+}
+
+.UploadButton > button {
+  /* Örneğin mavi yapalım */
+  background-color: #7395f3;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+}
+
+
+.RightSidebar {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  height: calc(100vh - 32px);
+  background: #ffffff;
+  padding: 16px;
+  gap: 16px;
+  transition: width 0.3s ease;
+  border: 1px solid #e3e3e3;
+  border-radius: 8px;
+  margin-top: 0;
+  top: 16px;
+  right: 16px;
+  bottom: 16px;
+  overflow: hidden;
+  position: fixed;
+}
+
+.RightSidebarClosed {
+  width: 60px;
+  padding: 16px 0;
+  overflow: hidden;
+}
+
+.RightSidebarClosed .Header {
+  /*İkonu ortalamak için */
+  justify-content: center;
+}
+
+.RightSidebarClosed .Title {
+  display: none;
+}
+
+.Header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: space-between;
+}
+
+.Title {
+  margin: 0;
+  font-size: 18px;
+  color: #2a2a2a;
+}
+
+.ToggleButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.UploadButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 16px;
+  background: #f3f3f3;
+  color: #0d0d0d;
+  border: 1px solid #aaa;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  text-align: center;
+}
+
+.UploadButton:hover {
+  background: #e0e0e0;
+}
+
+.FileInput {
+  display: none;
+}
+
+.InfoText {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 12px;
+  color: #aaa;
+  text-align: left;
+  padding: 8px;
+  background: #f9f9f9;
+  border-radius: 8px;
+}
+
+.InfoText p {
+  margin: 0;
+}
+
+.InfoIcon {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.ResourceList {
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.SelectAll {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  font-size: 14px;
+  color: #2a2a2a;
+  background: #f3f3f3;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.ResourceItem {
+  margin-bottom: 4px;
+  border-radius: 8px;
+  background: #ffffff;
+  border: 1px solid #e3e3e3;
+}
+
+.ResourceItemContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  color: #2a2a2a;
+}
+
+.ResourceInfo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+}
+
+.ResourceName {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.MenuContainer {
+  position: relative;
+  margin-left: 8px;
+}
+
+.MenuButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+}
+
+.MenuButton:hover {
+  background: #f3f3f3;
+}
+
+.Menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: #ffffff;
+  border: 1px solid #e3e3e3;
+  border-radius: 8px;
+  padding: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  min-width: 200px;
+}
+
+.MenuItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  padding: 8px 12px;
+  font-size: 14px;
+  color: #2a2a2a;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  border-radius: 4px;
+}
+
+.MenuItem:hover {
+  background: #f3f3f3;
+}
+
+.RenameContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  width: 100%;
+}
+
+.RenameInput {
+  flex-grow: 1;
+  padding: 6px 12px;
+  font-size: 14px;
+  border: 1px solid #e3e3e3;
+  border-radius: 4px;
+  background: #ffffff;
+  color: #0d0d0d;
+}
+
+.RenameInput:focus {
+  outline: none;
+  border-color: #0066cc;
+  box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2);
+}
+
+.SaveButton,
+.CancelButton {
+  padding: 6px 12px;
+  font-size: 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  border: none;
+}
+
+.SaveButton {
+  background: #0066cc;
+  color: #ffffff;
+}
+
+.SaveButton:hover {
+  background: #0052a3;
+}
+
+.CancelButton {
+  background: #f3f3f3;
+  color: #2a2a2a;
+}
+
+.CancelButton:hover {
+  background: #e0e0e0;
+}
+
+
+.Sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  height: calc(100vh - 32px);
+  background: #ffffff;
+  padding: 16px;
+  gap: 16px;
+  transition: width 0.3s ease;
+  border: 1px solid #e3e3e3;
+  border-radius: 8px;
+  margin-top: 0;
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  bottom: 16px;
+}
+
+.SidebarClosed {
+  width: 60px;
+  padding: 16px 0;
+  overflow: hidden;
+}
+
+.SidebarClosed .Header {
+  justify-content: center;
+}
+
+.SidebarClosed .Logo,
+.SidebarClosed .Title {
+  display: none;
+}
+
+.ChatHistory {
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.SectionTitle {
+  font-size: 14px;
+  color: #aaa;
+  margin: 16px 0 8px;
+}
+
+.ChatItem {
+  margin-bottom: 4px;
+  border-radius: 8px;
+  background: #ffffff;
+  border: 1px solid #e3e3e3;
+  padding: 8px 16px;
+  font-size: 14px;
+  color: #2a2a2a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.ChatItem:hover {
+  background: #f3f3f3;
+}
+
+.ActiveRoom {
+  background-color: #6e6e6e;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.NewChat {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  background: #f3f3f3;
+  color: #2a2a2a;
+  border: 1px solid #e3e3e3;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  text-align: left;
+  transition: background-color 0.2s ease;
+}
+
+.NewChat:hover {
+  background: #e0e0e0;
+}
+
+.NewChat svg {
+  margin-left: 8px;
+}
+
+.ChatItemWithMenu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.EditInput {
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 1px solid #e3e3e3;
+  border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+  .Sidebar,
+  .RightSidebar {
+    position: relative;
+    width: 100%;
+    left: 0;
+    right: 0;
+    height: auto;
+    border-radius: 0;
+    border: none;
+  }
+
+  .SidebarClosed,
+  .RightSidebarClosed {
+    display: none;
+  }
+}
+
+.DocumentGroup {
+  margin-bottom: 1.5rem;
+}
+
+.GroupTitle {
+  font-weight: bold;
+  color: #777;
+  margin-bottom: 0.5rem;
+}
+

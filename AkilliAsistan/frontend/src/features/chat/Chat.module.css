@@ -1,0 +1,46 @@
+/* file: frontend/src/features/chat/Chat.module.css */
+.Chat {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 100%;
+  padding: 8px;
+  overflow-y: auto;
+}
+
+.Message {
+  width: 90%;
+  padding: 0 16px;
+  border-radius: 16px;
+  font-size: 14px;
+
+  &[data-role="user"] {
+    align-self: flex-end;
+    background: #f3f3f3;
+  }
+
+  &[data-role="assistant"] {
+    align-self: flex-start;
+    background: #f3f3f3; /* kullanıcıyla aynı */
+  }
+}
+
+
+.Timestamp {
+  font-size: 10px;
+  color: #aaa;
+  margin-top: 4px;
+  text-align: right;
+}
+
+.TypingAnimation {
+  display: flex;
+  gap: 2px;
+  font-size: 20px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}

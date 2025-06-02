@@ -1,0 +1,166 @@
+** FRONTEND VE BACKENDİN ÇALIŞACAĞI BİLGİSAYAR
+
+
+AkilliAsistan/
+├── backend/
+│   ├── applog/
+│   │   ├── app.log
+│   │   └── error.log
+│   │
+│   ├── config/
+│   │   └── config.py
+│   │
+│   ├── controllers/
+│   │   ├── auth/
+│   │   │   └── auth_controller.py
+│   │   ├── chat/
+│   │   │   ├── chat_ai_controller.py
+│   │   │   ├── chat_file_controller.py
+│   │   │   ├── chat_message_controller.py
+│   │   │   └── chat_room_controller.py
+│   │   ├── document/                       
+│   │   │   └── document_controller.py      
+│   │   └── uploads/                     
+│   │       └── upload_controller.py    
+│   │
+│   ├── core/
+│   │   ├── database/
+│   │   │   └── mongo.py
+│   │   ├── mail/
+│   │   │   ├── mail.py
+│   │   │   └── templates.py
+│   │   ├── security/
+│   │   │   ├── auth_decorator.py
+│   │   │   └── security.py
+│   │   ├── utils/
+│   │   │   ├── language_detector.py
+│   │   │   ├── response.py
+│   │   │   └── summarizer_client.py
+│   │   └── extractors/
+│   │       ├── audio_extractor.py                 
+│   │       ├── base_extractor.py
+│   │       ├── extractor_router.py
+│   │       ├── image_ocr_extractor.py
+│   │       ├── news_extractor.py       
+│   │       ├── pdf_extractor.py        
+│   │       ├── pptx_extractor.py
+│   │       ├── web_extractor.py           
+│   │       ├── word_extractor.py
+│   │       └── youtube_extractor.py
+│   │
+│   ├── routes/
+│   │   └── register_routes.py
+│   │
+│   ├── services/
+│   │   ├── auth/
+│   │   │   └── auth_service.py
+│   │   ├── chat/
+│   │   │   └── chat_service.py
+│   │   ├── document/                   
+│   │   │   └── document_service.py
+│   │   ├── qa/                   
+│   │   │   ├── context_builder.py
+│   │   │   ├── message_context.py
+│   │   │   └── qa_service.py
+│   │   └── upload/
+│   │       ├── context_log_handler.py
+│   │       ├── document_storage.py
+│   │       ├── file_validation.py
+│   │       ├── text_extraction.py
+│   │       └── upload_service.py
+│   │
+│   ├── uploads/
+│   │
+│   ├── .env
+│   └── app.py
+│
+├── frontend/
+│   ├── node_modules/
+│
+│   ├── src/
+│   │   ├── api/
+│   │   │   ├── axiosInstance.js
+│   │   │   └── documentApi.js
+│   │   │
+│   │   ├── components/
+│   │   │   ├── Icons/
+│   │   │   │   └── index.js ve iconlar bulunuyor(jsx)
+│   │   │   ├── LanguageSwitcher/
+│   │   │   │   └── LanguageSwitcher.jsx
+│   │   │   ├── Shared/
+│   │   │   │   ├── Button.jsx
+│   │   │   │   ├── FormWrapper.jsx
+│   │   │   │   ├── Input.jsx
+│   │   │   │   ├── Spinner.jsx
+│   │   │   │   ├── Spinner.module.css
+│   │   │   │   └── shared.module.css
+│   │   │   └── Sidebar/
+│   │   │       ├── Sidebar.jsx
+│   │   │       ├── Sidebar.module.css
+│   │   │       ├── DropdownMenu.jsx
+│   │   │       ├── DropdownMenu.module.css
+│   │   │       ├── RightSidebar.jsx
+│   │   │       └── RightSidebar.module.css
+│   │   │    
+│   │   ├── features/chat/
+│   │   │       ├── Chat.jsx
+│   │   │       ├── Chat.module.css
+│   │   │       ├── Controls.jsx
+│   │   │       ├── Controls.module.css
+│   │   │       ├── ChatPage.jsx
+│   │   │       └── ChatPage.module.css
+│   │   │   
+│   │   ├── locales/
+│   │   │   ├── en/
+│   │   │   │   └── translation.json
+│   │   │   ├── tr/
+│   │   │   │   └── translation.json
+│   │   │   └── i18n.js
+│   │   │
+│   │   ├── pages/
+│   │   │   ├── SignIn/
+│   │   │   │   ├── SignIn.jsx
+│   │   │   │   └── SignIn.module.css
+│   │   │   ├── SignUp/
+│   │   │   │   ├── SignUp.jsx
+│   │   │   │   └── SignUp.module.css
+│   │   │   ├── ForgotPassword/
+│   │   │   │   ├── ForgotPassword.jsx
+│   │   │   │   └── ForgotPassword.module.css
+│   │   │   ├── ResetPassword/
+│   │   │   │   ├── ResetPassword.jsx
+│   │   │   │   └── ResetPassword.module.css
+│   │   │   ├── ProfilePage/
+│   │   │   │   ├── ProfilePage.jsx
+│   │   │   │   └── ProfilePage.module.css
+│   │   │   └── VerifyEmail/
+│   │   │       ├── VerifyEmail.jsx
+│   │   │       └── VerifyEmail.module.css
+│   │   │
+│   │   ├── Store/
+│   │   │   └── useUserStore.js.jsx
+│   │   │
+│   │   ├── App.jsx
+│   │   ├── main.jsx
+│   │   └── index.css
+│   │
+│   ├── .env
+│   ├── .gitignore
+│   ├── eslint.config.js
+│   ├── index.html
+│   ├── package-lock.json
+│   ├── package.json
+│   └── vite.config.js
+│
+├── .gitignore
+└── README.md
+
+
+
+
+** MODELLERİN ÇALIŞACAĞI BİLGİSAYAR
+
+Summarize/
+├── model_api.py
+├── serve.py              
+└── .env

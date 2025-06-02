@@ -1,0 +1,192 @@
+/* file:frontend//src/pages/SignIn/SignIn.module.css */
+
+.google-loading {
+  text-align: center;
+  font-size: 14px;
+  color: #888;
+  padding: 12px;
+}
+
+.sign-in-container {
+  display: flex;
+  justify-content: center; /* İçeriği ortalamak için */
+  align-items: center;
+  height: 100vh;
+
+  background-image: url("/illustration.png"); /* Set the illustration as the background */
+  background-size: cover; /* Make the background cover the entire container */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+}
+
+/* Add a pseudo-element to apply the blur effect */
+.sign-in-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: inherit; /* Inherit the background image from the parent */
+  background-size: cover;
+  background-position: center;
+  /*filter: blur(8px); /* Apply blur effect */
+  z-index: 0; /* Ensure the blur is behind the content */
+}
+
+/* Remove the illustration section since it's now a background */
+.illustration-section {
+  display: none; /* Hide the illustration section since we're using it as a background */
+}
+
+/* Update the form section to ensure readability */
+.form-section {
+  flex: 1;
+  padding: 40px;
+  background-color: #fff; /* Semi-transparent white background for contrast */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 400px; /* Formun genişliğini sınırlandırıyoruz */
+  order: 2; /* Formu sağa almak için */
+  position: relative; /* Ensure the form is above the blurred background */
+  z-index: 1; /* Bring the form section above the blurred background */
+}
+
+/* Rest of your CSS remains the same */
+.form-section h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.form-section p {
+  color: #666;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+}
+
+.social-buttons {
+  display: flex;
+  justify-content: center; /* ✅ Ortalar */
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+
+.social-btn {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.social-btn:hover {
+  background-color: #f0f0f0;
+}
+
+.google-btn {
+  color: #4285f4;
+}
+
+.input-group {
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px 10px 10px 40px; /* İkonlar için soldan padding */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: #fff; /* Kutu içini beyaz */
+  color: #000; /* Kullanıcının yazdığı metni siyah yapar */
+}
+
+.input-group::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.input-group:nth-child(1)::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px' fill='%23e3e3e3'%3E%3Cpath d='M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z'/%3E%3C/svg%3E");
+}
+.input-group:nth-child(2)::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px' fill='%23e3e3e3'%3E%3Cpath d='M240-80q-33 0-56.5-23.5T160-160v-400q0-33 23.5-56.5T240-640h40v-80q0-83 58.5-141.5T480-920q83 0 141.5 58.5T680-720v80h40q33 0 56.5 23.5T800-560v400q0 33-23.5 56.5T720-80H240Zm0-80h480v-400H240v400Zm240-120q33 0 56.5-23.5T560-360q0-33-23.5-56.5T480-440q-33 0-56.5 23.5T400-360q0 33 23.5 56.5T480-280ZM360-640h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z'/%3E%3C/svg%3E");
+}
+
+/* Şifre görünürlük ikonu için stil */
+.visibility-toggle {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.start-trading-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.start-trading-btn:hover {
+  background-color: #0056b3;
+}
+
+.signup-link {
+  text-align: center;
+  margin-top: 20px;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.signup-link a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.signup-link a:hover {
+  text-decoration: underline;
+}
+
+.forgot-password {
+  text-align: center;
+  margin-top: 20px;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.forgot-password a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 500; /*  font-size yerine font-weight düzeltildi ona bak*/
+}
+
+.forgot-password a:hover {
+  text-decoration: underline;
+}

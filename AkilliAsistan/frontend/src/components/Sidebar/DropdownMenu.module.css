@@ -1,0 +1,50 @@
+.DropdownContainer {
+  position: relative;
+  margin-left: 8px;
+}
+
+.MenuButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+}
+
+.MenuButton:hover {
+  background: #f3f3f3;
+}
+
+.Menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: #ffffff;
+  border: 1px solid #e3e3e3;
+  border-radius: 8px;
+  padding: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  min-width: 200px;
+}
+
+.MenuItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  padding: 8px 12px;
+  font-size: 14px;
+  color: #2a2a2a;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  border-radius: 4px;
+}
+
+.MenuItem:hover {
+  background: #f3f3f3;
+}

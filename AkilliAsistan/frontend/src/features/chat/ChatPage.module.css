@@ -1,0 +1,166 @@
+/* file: frontend/src/App.module.css */
+
+.App {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    padding: 16px;
+    gap: 16px;
+    background: #f5f5f5;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+  }
+  
+  .MainContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    flex-grow: 1;
+    background: white;
+    border-radius: 8px;
+    border: 1px solid #e3e3e3;
+    overflow: hidden;
+    width: calc(100% - 532px);
+    margin-left: 0;
+    margin-right: 0;
+    position: fixed;
+    top: 76px;
+    bottom: 16px;
+    left: 266px;
+    right: 266px;
+  }
+  
+  .App:has(.SidebarClosed) .MainContent {
+    left: 76px;
+    width: calc(100% - 342px);
+  }
+  
+  .App:has(.RightSidebarClosed) .MainContent {
+    right: 76px;
+    width: calc(100% - 342px);
+  }
+  
+  .App:has(.SidebarClosed):has(.RightSidebarClosed) .MainContent {
+    left: 76px;
+    right: 76px;
+    width: calc(100% - 152px);
+  }
+  
+  .Header {
+    position: fixed;
+    top: 16px;
+    left: 266px;
+    right: 266px;
+    height: 60px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    z-index: 100;
+    border: 1px solid #e3e3e3;
+    border-radius: 8px;
+  }
+  
+  .Logo {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .Title {
+    margin: 0;
+    color: #2a2a2a;
+  }
+  
+  .HeaderIcons {
+    display: flex;
+    gap: 16px;
+  }
+  
+  .SettingsButton,
+  .ProfileButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+  }
+  
+  .SettingsButton svg,
+  .ProfileButton svg {
+    fill: #2a2a2a;
+  }
+  
+  .SettingsButton:hover,
+  .ProfileButton:hover {
+    background: #f3f3f3;
+  }
+  
+  .SettingsContainer,
+  .ProfileContainer {
+    position: relative;
+  }
+  
+  .SettingsMenu,
+  .ProfileMenu {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background: #ffffff;
+    border: 1px solid #e3e3e3;
+    border-radius: 8px;
+    padding: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+  }
+  
+  .SignOutButton {
+    background: #f3f3f3;
+    color: #0d0d0d;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  .SignOutButton:hover {
+    background: #e0e0e0;
+  }
+  
+  .ChatContainer {
+    flex-grow: 1;
+    width: 100%;
+    background: #ffffff;
+    border-radius: 8px;
+    overflow-y: auto;
+    min-width: 400px;
+    padding: 16px;
+    height: calc(100% - 76px);
+  }
+  
+  /* LanguageSwitcherButton */
+  .LanguageSwitcherButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+  }
+  
+  .LanguageSwitcherButton img {
+    width: 20px;
+    height: 15px;
+  }
+  
